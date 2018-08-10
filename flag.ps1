@@ -1,27 +1,58 @@
-Flag
-##Uncomplete Power shell script. Will print american flag hopefully...
-
-for ($o=0; $o -le 5; $o ++){
-
-    for ($i=0; $i -le 9; $i++)
-    {
-    $BlueStar = Write-Host "*" -BackgroundColor Blue -ForegroundColor White
-    $x = $i
-    $y = $o
-    $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $x , $y
-    $Host.UI.Write($BlueStar)
-    Start-Sleep .3
-
-    }
-
-
-
+#Flag
+#Merica. Need to figure out how to get the correct stars and stripes.
+Function BlueRed 
+{ Param($x,$y)
+  $BlueReds = Write-Host "**********" -b blue -f white -nonewline; Write-Host "                 " -b red;
+  $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $x , $y
+  $Host.UI.Write($BlueReds) 
+    
 }
 
-$RedStrip = Write-Host "               " -BackgroundColor Red
-$x = $11
-$y = 0
-$Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $x , $y
-$Host.UI.Write($RedStrip)
-Start-Sleep .3
+Function BlueWhite 
+{ Param($x,$y)
+  $BlueWhies = Write-Host "**********" -b blue -f white -nonewline; Write-Host "                 " -b White;
+  $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $x , $y
+  $Host.UI.Write($BlueWhites) 
+    
+}
+
+Function White 
+{ Param($x,$y)
+  $White = Write-Host "                           " -b White -nonewline
+  $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $x , $y
+  $Host.UI.Write($White) 
+    
+}
+
+Function Red 
+{ Param($x,$y)
+  $Red = Write-Host "                           " -b Red -nonewline
+  $Host.UI.RawUI.CursorPosition = New-Object System.Management.Automation.Host.Coordinates $x , $y
+  $Host.UI.Write($Red) 
+    
+}
+
+$a = 1
+$b = 2
+$c = 7
+$d = 8
+
+for($counter = 0; $counter -le 2; $counter++)
+{
+   BlueRed 0 $a
+   BlueWhite 0 $b
+   $a = $a +2
+   $b = $b +2
+}
+
+for($counter = 0; $counter -le 2; $counter++)
+{
+   Red 0 $c
+   White 0 $d
+   $a = $a +2
+   $b = $b +2
+}
+
+
+echo "`n"
 Read-Host "Press ENTER"
